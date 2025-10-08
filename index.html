@@ -7,45 +7,12 @@
 
   <!-- ---------- STYLES ---------- -->
   <style>
-    /* ---------- SCROLL ANIMATION ---------- */
-.card {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.card.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
     :root {
       --primary: #2563eb;
       --card-bg: #f9f9f9;
       --bg-color: #ffffff;
       --text-color: #333333;
     }
-// Scroll animation for project cards
-const cards = document.querySelectorAll('.card');
-
-function showCardsOnScroll() {
-  const triggerBottom = window.innerHeight * 0.85;
-
-  cards.forEach(card => {
-    const cardTop = card.getBoundingClientRect().top;
-
-    if(cardTop < triggerBottom){
-      card.classList.add('show');
-    } else {
-      card.classList.remove('show'); // optional: remove class if scrolling up
-    }
-  });
-}
-
-window.addEventListener('scroll', showCardsOnScroll);
-
-// Trigger animation on page load
-showCardsOnScroll();
 
     body {
       font-family: Arial, sans-serif;
@@ -53,6 +20,12 @@ showCardsOnScroll();
       padding: 0;
       background-color: var(--bg-color);
       color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark {
+      background-color: #111;
+      color: #eee;
     }
 
     /* ---------- HEADER ---------- */
@@ -66,6 +39,7 @@ showCardsOnScroll();
       background: var(--bg-color);
       z-index: 1000;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: background 0.3s, color 0.3s;
     }
 
     .navbar ul {
@@ -133,7 +107,7 @@ showCardsOnScroll();
       margin-bottom: 30px;
     }
 
-    /* ---------- PROJECT GALLERY ---------- */
+    /* ---------- PROJECT & GALLERY CARDS ---------- */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -145,7 +119,14 @@ showCardsOnScroll();
       border-radius: 12px;
       box-shadow: 0 6px 16px rgba(0,0,0,0.1);
       overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s, opacity 0.6s ease-out, transform 0.6s ease-out;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .card:hover {
@@ -269,16 +250,48 @@ showCardsOnScroll();
         <img src="https://via.placeholder.com/300x180" alt="Project 1">
         <div class="card-content">
           <h3>Project One</h3>
-          <p>Short description of project one.</p>
-          <a href="#">View Project</a>
+          <p>A website built with HTML, CSS, and JS showcasing portfolio skills.</p>
+          <a href="https://github.com/yourusername/project1" target="_blank">View Project</a>
         </div>
       </div>
       <div class="card">
         <img src="https://via.placeholder.com/300x180" alt="Project 2">
         <div class="card-content">
           <h3>Project Two</h3>
-          <p>Short description of project two.</p>
-          <a href="#">View Project</a>
+          <p>A responsive landing page design with interactive animations.</p>
+          <a href="https://github.com/yourusername/project2" target="_blank">View Project</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x180" alt="Project 3">
+        <div class="card-content">
+          <h3>Project Three</h3>
+          <p>A JavaScript game demonstrating logic and interactivity.</p>
+          <a href="https://github.com/yourusername/project3" target="_blank">View Project</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x180" alt="Project 4">
+        <div class="card-content">
+          <h3>Project Four</h3>
+          <p>An e-commerce website mockup with HTML, CSS, and JS functionality.</p>
+          <a href="https://github.com/yourusername/project4" target="_blank">View Project</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x180" alt="Project 5">
+        <div class="card-content">
+          <h3>Project Five</h3>
+          <p>A React app demonstrating dynamic content and API usage.</p>
+          <a href="https://github.com/yourusername/project5" target="_blank">View Project</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x180" alt="Project 6">
+        <div class="card-content">
+          <h3>Project Six</h3>
+          <p>A CSS animation project showcasing creative visual effects.</p>
+          <a href="https://github.com/yourusername/project6" target="_blank">View Project</a>
         </div>
       </div>
     </div>
@@ -287,7 +300,50 @@ showCardsOnScroll();
   <!-- ---------- GALLERY ---------- -->
   <section id="gallery">
     <h2>Gallery</h2>
-    <p>Here you can showcase images, designs, or screenshots.</p>
+    <div class="gallery">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x180" alt="Gallery 1">
+        <div class="card-content">
+          <h3>Design One</h3>
+          <p>A creative design example or screenshot.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x180" alt="Gallery 2">
+        <div class="card-content">
+          <h3>Design Two</h3>
+          <p>Another design or project screenshot.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x180" alt="Gallery 3">
+        <div class="card-content">
+          <h3>Design Three</h3>
+          <p>Example of your creative work or layout.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x180" alt="Gallery 4">
+        <div class="card-content">
+          <h3>Design Four</h3>
+          <p>Another screenshot or design sample.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x180" alt="Gallery 5">
+        <div class="card-content">
+          <h3>Design Five</h3>
+          <p>Creative work, design, or screenshot example.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x180" alt="Gallery 6">
+        <div class="card-content">
+          <h3>Design Six</h3>
+          <p>Final example of your gallery showcase.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ---------- CONTACT ---------- -->
@@ -301,62 +357,4 @@ showCardsOnScroll();
       <input type="email" id="email" name="email" placeholder="Your Email" required>
 
       <label for="message">Message</label>
-      <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <!-- ---------- JAVASCRIPT ---------- -->
-  <script>
-    // Hamburger menu
-    function toggleMenu(){
-      const menu = document.querySelector(".navbar ul");
-      menu.classList.toggle("show");
-    }
-
-    // Typing animation
-    const typedTextSpan = document.querySelector(".typed-text");
-    const cursorSpan = document.querySelector(".cursor");
-
-    const textArray = ["a Web Developer", "a Designer", "a Creator", "Lun Valte"];
-    const typingDelay = 100;
-    const erasingDelay = 50;
-    const newTextDelay = 1500;
-    let textArrayIndex = 0;
-    let charIndex = 0;
-
-    function type() {
-      if(charIndex < textArray[textArrayIndex].length){
-        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(type, typingDelay);
-      } else {
-        setTimeout(erase, newTextDelay);
-      }
-    }
-
-    function erase() {
-      if(charIndex > 0){
-        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
-        charIndex--;
-        setTimeout(erase, erasingDelay);
-      } else {
-        textArrayIndex++;
-        if(textArrayIndex >= textArray.length) textArrayIndex = 0;
-        setTimeout(type, typingDelay + 500);
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", function(){
-      if(textArray.length) setTimeout(type, newTextDelay + 250);
-    });
-
-    // Dark mode toggle
-    function toggleTheme(){
-      document.body.classList.toggle("dark");
-    }
-  </script>
-
-</body>
-</html>
+      <textarea id="message" name="message" placeholder="Your Message" rows="5"

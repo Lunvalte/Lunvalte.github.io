@@ -316,12 +316,69 @@ html {
       }
     }
   </style>
+  /* ---------- TYPING ANIMATION ---------- */
+.typed-text {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.cursor {
+  display: inline-block;
+  background-color: var(--primary);
+  width: 2px;
+  animation: blink 0.7s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
 </head>
 <body>
+  <script>
+const typedTextSpan = document.querySelector(".typed-text");
+const cursorSpan = document.querySelector(".cursor");
+
+const textArray = ["a Web Developer", "a Designer", "a Creator", "Lun Valte"];
+const typingDelay = 100;
+const erasingDelay = 50;
+const newTextDelay = 1500; // Delay between texts
+let textArrayIndex = 0;
+let charIndex = 0;
+
+function type() {
+  if (charIndex < textArray[textArrayIndex].length) {
+    typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, typingDelay);
+  } else {
+    setTimeout(erase, newTextDelay);
+  }
+}
+
+function erase() {
+  if (charIndex > 0) {
+    typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+    charIndex--;
+    setTimeout(erase, erasingDelay);
+  } else {
+    textArrayIndex++;
+    if(textArrayIndex >= textArray.length) textArrayIndex = 0;
+    setTimeout(type, typingDelay + 500);
+  }
+}
+
+// Start the typing effect
+document.addEventListener("DOMContentLoaded", function() {
+  if(textArray.length) setTimeout(type, newTextDelay + 250);
+});
+</script>
+
 
   <header>
     <h1>Lun Valte</h1>
-    <p>Welcome to my personal website 🌙</p>
+  <p>I am <span class="typed-text"></span><span class="cursor">|</span></p>
     <button class="theme-toggle" onclick="toggleTheme()">🌗 Dark Mode</button>
   </header>
 

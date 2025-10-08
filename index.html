@@ -1,90 +1,329 @@
-<!-- ---------- HEADER START ---------- -->
-<header>
-  <!-- Hamburger menu button -->
-  <button class="hamburger" onclick="toggleMenu()">☰</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lun Valte</title>
 
-  <!-- Navigation bar -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <!-- ---------- STYLES ---------- -->
+  <style>
+    :root {
+      --primary: #2563eb;
+      --card-bg: #f9f9f9;
+      --bg-color: #ffffff;
+      --text-color: #333333;
+    }
 
-  <!-- Site title and animated text -->
-  <h1>Lun Valte</h1>
-  <p>I am <span class="typed-text"></span><span class="cursor">|</span></p>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
 
-  <!-- Dark mode toggle -->
-  <button class="theme-toggle" onclick="toggleTheme()">🌗 Dark Mode</button>
-</header>
+    /* ---------- HEADER ---------- */
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      background: var(--bg-color);
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
 
-<!-- ---------- TYPING ANIMATION CSS ---------- -->
-<style>
-.typed-text {
-  font-weight: 600;
-  color: var(--primary);
-}
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 10px 0;
+    }
 
-.cursor {
-  display: inline-block;
-  background-color: var(--primary);
-  width: 2px;
-  animation: blink 0.7s infinite;
-  margin-left: 2px;
-}
+    .navbar a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 600;
+    }
 
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
-}
-</style>
+    .hamburger {
+      display: none;
+      font-size: 1.5em;
+      background: none;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
 
-<!-- ---------- TYPING ANIMATION + HAMBURGER JS ---------- -->
-<script>
-/* Hamburger menu */
-function toggleMenu() {
-  const menu = document.querySelector(".navbar ul");
-  menu.classList.toggle("show");
-}
+    .theme-toggle {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
 
-/* Typing animation */
-const typedTextSpan = document.querySelector(".typed-text");
-const cursorSpan = document.querySelector(".cursor");
+    /* ---------- TYPING ANIMATION ---------- */
+    .typed-text {
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .cursor {
+      display: inline-block;
+      background-color: var(--primary);
+      width: 2px;
+      animation: blink 0.7s infinite;
+      margin-left: 2px;
+    }
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
 
-const textArray = ["a Web Developer", "a Designer", "a Creator", "Lun Valte"];
-const typingDelay = 100;
-const erasingDelay = 50;
-const newTextDelay = 1500;
-let textArrayIndex = 0;
-let charIndex = 0;
+    /* ---------- SECTIONS ---------- */
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
 
-function type() {
-  if (charIndex < textArray[textArrayIndex].length) {
-    typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-    charIndex++;
-    setTimeout(type, typingDelay);
-  } else {
-    setTimeout(erase, newTextDelay);
-  }
-}
+    h2 {
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-function erase() {
-  if (charIndex > 0) {
-    typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
-    charIndex--;
-    setTimeout(erase, erasingDelay);
-  } else {
-    textArrayIndex++;
-    if(textArrayIndex >= textArray.length) textArrayIndex = 0;
-    setTimeout(type, typingDelay + 500);
-  }
-}
+    /* ---------- PROJECT GALLERY ---------- */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
 
-document.addEventListener("DOMContentLoaded", function() {
-  if(textArray.length) setTimeout(type, newTextDelay + 250);
-});
-</script>
-<!-- ---------- HEADER END ---------- -->
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px 20px 25px 20px;
+    }
+
+    .card-content h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+
+    .card-content p {
+      margin-bottom: 12px;
+      opacity: 0.9;
+    }
+
+    .card-content a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .card-content a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- CONTACT FORM ---------- */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .contact-form label {
+      font-weight: 600;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+      width: 100%;
+      transition: border-color 0.3s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+
+    .contact-form button {
+      padding: 12px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #1d4ed8;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media(max-width:768px){
+      .navbar ul { display:none; flex-direction: column; gap:10px; }
+      .navbar ul.show { display:flex; }
+      .hamburger { display:block; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ---------- HEADER ---------- -->
+  <header>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <h1>Lun Valte</h1>
+    <p>I am <span class="typed-text"></span><span class="cursor">|</span></p>
+    <button class="theme-toggle" onclick="toggleTheme()">🌗 Dark Mode</button>
+  </header>
+
+  <!-- ---------- ABOUT ---------- -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I am Lun Valte, a passionate developer and creator. I love building websites and projects that make a difference.</p>
+  </section>
+
+  <!-- ---------- PROJECTS ---------- -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="gallery">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x180" alt="Project 1">
+        <div class="card-content">
+          <h3>Project One</h3>
+          <p>Short description of project one.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x180" alt="Project 2">
+        <div class="card-content">
+          <h3>Project Two</h3>
+          <p>Short description of project two.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- GALLERY ---------- -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <p>Here you can showcase images, designs, or screenshots.</p>
+  </section>
+
+  <!-- ---------- CONTACT ---------- -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <form action="mailto:valtelunz@gmail.com" method="POST" class="contact-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- ---------- JAVASCRIPT ---------- -->
+  <script>
+    // Hamburger menu
+    function toggleMenu(){
+      const menu = document.querySelector(".navbar ul");
+      menu.classList.toggle("show");
+    }
+
+    // Typing animation
+    const typedTextSpan = document.querySelector(".typed-text");
+    const cursorSpan = document.querySelector(".cursor");
+
+    const textArray = ["a Web Developer", "a Designer", "a Creator", "Lun Valte"];
+    const typingDelay = 100;
+    const erasingDelay = 50;
+    const newTextDelay = 1500;
+    let textArrayIndex = 0;
+    let charIndex = 0;
+
+    function type() {
+      if(charIndex < textArray[textArrayIndex].length){
+        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, typingDelay);
+      } else {
+        setTimeout(erase, newTextDelay);
+      }
+    }
+
+    function erase() {
+      if(charIndex > 0){
+        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+        charIndex--;
+        setTimeout(erase, erasingDelay);
+      } else {
+        textArrayIndex++;
+        if(textArrayIndex >= textArray.length) textArrayIndex = 0;
+        setTimeout(type, typingDelay + 500);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function(){
+      if(textArray.length) setTimeout(type, newTextDelay + 250);
+    });
+
+    // Dark mode toggle
+    function toggleTheme(){
+      document.body.classList.toggle("dark");
+    }
+  </script>
+
+</body>
+</html>

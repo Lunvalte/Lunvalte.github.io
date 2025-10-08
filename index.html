@@ -7,12 +7,45 @@
 
   <!-- ---------- STYLES ---------- -->
   <style>
+    /* ---------- SCROLL ANIMATION ---------- */
+.card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
     :root {
       --primary: #2563eb;
       --card-bg: #f9f9f9;
       --bg-color: #ffffff;
       --text-color: #333333;
     }
+// Scroll animation for project cards
+const cards = document.querySelectorAll('.card');
+
+function showCardsOnScroll() {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  cards.forEach(card => {
+    const cardTop = card.getBoundingClientRect().top;
+
+    if(cardTop < triggerBottom){
+      card.classList.add('show');
+    } else {
+      card.classList.remove('show'); // optional: remove class if scrolling up
+    }
+  });
+}
+
+window.addEventListener('scroll', showCardsOnScroll);
+
+// Trigger animation on page load
+showCardsOnScroll();
 
     body {
       font-family: Arial, sans-serif;

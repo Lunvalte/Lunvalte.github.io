@@ -34,9 +34,54 @@
       flex-direction: column;
       min-height: 100vh;
     }
+    /* ---------- HAMBURGER MENU ---------- */
+.hamburger {
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 1.2em;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 200;
+}
+
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    background: var(--bg-color);
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 200px;
+    height: 100%;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    border-radius: 0 10px 10px 0;
+  }
+
+  .navbar ul.show {
+    left: 0;
+  }
+
+  .navbar ul li {
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
 
     header {/* ---------- NAVIGATION BAR ---------- */
-.navbar {
+.navbar {<button class="hamburger" onclick="toggleMenu()">☰</button>
   background: rgba(255, 255, 255, 0.9);
   position: sticky;
   top: 0;
@@ -287,7 +332,7 @@ html {
   </div>
 </section>
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:lunvalte@example.com">lunvalte@example.com</a></p>
+      <p>Email: <a href="mailto:valtelunz@.com">lunvalte@example.com</a></p>
       <div class="social-links">
         <a href="https://github.com/lunvalte" target="_blank">🌐 GitHub</a>
         <a href="https://www.linkedin.com/" target="_blank">💼 LinkedIn</a>

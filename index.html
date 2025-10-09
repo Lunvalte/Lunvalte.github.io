@@ -1,385 +1,109 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lun Valte</title>
-
-  <!-- ---------- STYLES ---------- -->
+  <title>Lun Valte Portfolio & Resources</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #2563eb;
-      --card-bg: #f9f9f9;
-      --bg-color: #ffffff;
-      --text-color: #333333;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      transition: background-color 0.5s ease, color 0.5s ease;
-    }
-
-    body.dark {
-      background-color: #111;
-      color: #eee;
-    }
-
-    /* ---------- HEADER ---------- */
-    header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-      position: sticky;
-      top: 0;
-      background: var(--bg-color);
-      z-index: 1000;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      transition: background 0.5s ease, color 0.5s ease;
-    }
-
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      padding: 0;
-      margin: 10px 0;
-    }
-
-    .navbar a {
-      text-decoration: none;
-      color: var(--text-color);
-      font-weight: 600;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 1.5em;
-      background: none;
-      border: none;
-      cursor: pointer;
-      position: absolute;
-      top: 15px;
-      right: 15px;
-    }
-
-    .theme-toggle {
-      margin-top: 10px;
-      padding: 8px 12px;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .theme-toggle:hover { background: #1d4ed8; }
-
-    /* ---------- TYPING ANIMATION ---------- */
-    .typed-text { font-weight: 600; color: var(--primary); }
-    .cursor {
-      display: inline-block;
-      background-color: var(--primary);
-      width: 2px;
-      animation: blink 0.7s infinite;
-      margin-left: 2px;
-    }
-    @keyframes blink { 0%,50%,100%{opacity:1;} 25%,75%{opacity:0;} }
-
-    /* ---------- SECTIONS ---------- */
-    section { padding: 50px 20px; max-width: 1000px; margin: 0 auto; }
-    h2 { color: var(--primary); text-align: center; margin-bottom: 30px; }
-
-    /* ---------- PROJECT & GALLERY CARDS ---------- */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: 12px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.6s ease-out, transform 0.6s ease-out;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    .card.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
-    }
-
-    .card img { width: 100%; height: 180px; object-fit: cover; transition: background 0.5s ease; }
-    .card-content {
-      padding: 15px 20px 25px 20px;
-      transition: background 0.5s ease, color 0.5s ease;
-    }
-    .card-content h3 { color: var(--primary); margin-bottom: 10px; font-size: 1.2em; }
-    .card-content p { margin-bottom: 12px; opacity: 0.9; }
-    .card-content a { color: var(--primary); font-weight: 600; text-decoration: none; }
-    .card-content a:hover { text-decoration: underline; }
-
-    /* ---------- CONTACT FORM ---------- */
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    .contact-form label { font-weight: 600; }
-    .contact-form input, .contact-form textarea {
-      padding: 10px;
-      border: 2px solid #ccc;
-      border-radius: 8px;
-      font-size: 1em;
-      width: 100%;
-      transition: border-color 0.3s, background 0.5s, color 0.5s;
-    }
-    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--primary); outline: none; }
-    .contact-form button {
-      padding: 12px;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-    .contact-form button:hover { background: #1d4ed8; }
-
-    /* ---------- RESPONSIVE ---------- */
-    @media(max-width:768px){
-      .navbar ul { display:none; flex-direction: column; gap:10px; }
-      .navbar ul.show { display:flex; }
-      .hamburger { display:block; }
-      section { padding: 40px 15px; }
-    }
+    body { font-family: 'Roboto', sans-serif; margin:0; padding:0; background:#f5f7fa; color:#333; }
+    header { background:#1e293b; color:#fff; padding:20px 0; text-align:center; }
+    header h1 { margin:0; font-size:2.5em; }
+    nav a { color:#fff; margin:0 15px; text-decoration:none; font-weight:500; }
+    nav a:hover { text-decoration:underline; }
+    section { max-width:1000px; margin:40px auto; padding:30px; background:#fff; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+    h2 { color:#1e293b; margin-bottom:20px; }
+    p, li { line-height:1.7; }
+    .affiliate-btn { display:inline-block; background:#0073e6; color:#fff; padding:12px 25px; margin:10px 0; border-radius:8px; text-decoration:none; font-weight:600; transition:0.3s; }
+    .affiliate-btn:hover { background:#005bb5; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:20px; }
+    .card { background:#f0f4f8; padding:20px; border-radius:10px; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    .card img { max-width:100%; border-radius:8px; margin-bottom:15px; }
+    .banner-section { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin-bottom:40px; }
+    .banner-btn { background:#ff6f61; color:#fff; padding:15px 25px; border-radius:10px; text-decoration:none; font-weight:700; transition:0.3s; }
+    .banner-btn:hover { background:#e65b50; }
+    footer { text-align:center; padding:20px; background:#1e293b; color:#fff; margin-top:40px; }
   </style>
 </head>
 <body>
 
-  <!-- ---------- HEADER ---------- -->
-  <header>
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
-    <nav class="navbar">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <h1>Lun Valte</h1>
-    <p>I am <span class="typed-text"></span><span class="cursor">|</span></p>
-    <button class="theme-toggle" onclick="toggleTheme()">🌗 Dark Mode</button>
-  </header>
+<header>
+  <h1>Lun Valte</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#blog">Blog/Tutorials</a>
+    <a href="#reviews">App Reviews</a>
+    <a href="#resources">Resources</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <!-- ---------- ABOUT ---------- -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I am Lun Valte, a passionate developer and creator. I love building websites and projects that make a difference.</p>
-  </section>
+<!-- Affiliate Banners -->
+<section class="banner-section">
+  <a href="YOUR_AFFILIATE_LINK" target="_blank" class="banner-btn">Top Course</a>
+  <a href="YOUR_AFFILIATE_LINK" target="_blank" class="banner-btn">Best Tool</a>
+  <a href="YOUR_AFFILIATE_LINK" target="_blank" class="banner-btn">Must-Have App</a>
+</section>
 
-  <!-- ---------- PROJECTS ---------- -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="gallery">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x180" alt="Project 1">
-        <div class="card-content">
-          <h3>Project One</h3>
-          <p>A website built with HTML, CSS, and JS showcasing portfolio skills.</p>
-          <a href="https://github.com/yourusername/project1" target="_blank">View Project</a>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x180" alt="Project 2">
-        <div class="card-content">
-          <h3>Project Two</h3>
-          <p>A responsive landing page design with interactive animations.</p>
-          <a href="https://github.com/yourusername/project2" target="_blank">View Project</a>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x180" alt="Project 3">
-        <div class="card-content">
-          <h3>Project Three</h3>
-          <p>A JavaScript game demonstrating logic and interactivity.</p>
-          <a href="https://github.com/yourusername/project3" target="_blank">View Project</a>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x180" alt="Project 4">
-        <div class="card-content">
-          <h3>Project Four</h3>
-          <p>An e-commerce website mockup with HTML, CSS, and JS functionality.</p>
-          <a href="https://github.com/yourusername/project4" target="_blank">View Project</a>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x180" alt="Project 5">
-        <div class="card-content">
-          <h3>Project Five</h3>
-          <p>A React app demonstrating dynamic content and API usage.</p>
-          <a href="https://github.com/yourusername/project5" target="_blank">View Project</a>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x180" alt="Project 6">
-        <div class="card-content">
-          <h3>Project Six</h3>
-          <p>A CSS animation project showcasing creative visual effects.</p>
-          <a href="https://github.com/yourusername/project6" target="_blank">View Project</a>
-        </div>
-      </div>
+<section id="home">
+  <h2>Welcome to My Portfolio</h2>
+  <p>Hello! I’m Lun Valte. I create tech tutorials, app reviews, and curated resources for web development and mobile apps. Explore my work and recommended tools below.</p>
+</section>
+
+<section id="blog">
+  <h2>Blog / Tutorials</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://via.placeholder.com/250x150?text=Tutorial+1" alt="Tutorial 1">
+      <h3>Learn Web Development</h3>
+      <p>Step-by-step guide for beginners. Enhance your coding skills and build projects.</p>
+      <a href="YOUR_AFFILIATE_LINK" target="_blank" class="affiliate-btn">Enroll Now</a>
     </div>
-  </section>
-
-  <!-- ---------- GALLERY ---------- -->
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x180" alt="Gallery 1">
-        <div class="card-content">
-          <h3>Design One</h3>
-          <p>A creative design example or screenshot.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x180" alt="Gallery 2">
-        <div class="card-content">
-          <h3>Design Two</h3>
-          <p>Another design or project screenshot.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x180" alt="Gallery 3">
-        <div class="card-content">
-          <h3>Design Three</h3>
-          <p>Example of your creative work or layout.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x180" alt="Gallery 4">
-        <div class="card-content">
-          <h3>Design Four</h3>
-          <p>Another screenshot or design sample.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x180" alt="Gallery 5">
-        <div class="card-content">
-          <h3>Design Five</h3>
-          <p>Creative work, design, or screenshot example.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x180" alt="Gallery 6">
-        <div class="card-content">
-          <h3>Design Six</h3>
-          <p>Final example of your gallery showcase.</p>
-        </div>
-      </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/250x150?text=Tutorial+2" alt="Tutorial 2">
+      <h3>Top Mobile Apps</h3>
+      <p>Discover the best apps for productivity and learning, with honest reviews.</p>
+      <a href="YOUR_AFFILIATE_LINK" target="_blank" class="affiliate-btn">Get the App</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ---------- CONTACT ---------- -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <form action="mailto:valtelunz@gmail.com" method="POST" class="contact-form">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" placeholder="Your Name" required>
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Your Email" required>
-      <label for="message">Message</label>
-      <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
+<section id="reviews">
+  <h2>App & Tool Reviews</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://via.placeholder.com/250x150?text=App+1" alt="App 1">
+      <h3>Web Design Tool</h3>
+      <p>Professional web design made easy with this powerful tool.</p>
+      <a href="YOUR_AFFILIATE_LINK" target="_blank" class="affiliate-btn">Try it Now</a>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/250x150?text=App+2" alt="App 2">
+      <h3>Productivity App</h3>
+      <p>Boost your workflow and organize tasks efficiently with this app.</p>
+      <a href="YOUR_AFFILIATE_LINK" target="_blank" class="affiliate-btn">Download</a>
+    </div>
+  </div>
+</section>
 
-  <!-- ---------- SCRIPTS ---------- -->
-  <script>
-    // Hamburger menu
-    function toggleMenu() {
-      document.querySelector(".navbar ul").classList.toggle("show");
-    }
+<section id="resources">
+  <h2>Resources / Tools</h2>
+  <ul>
+    <li><a href="YOUR_AFFILIATE_LINK" target="_blank" class="affiliate-btn">Tool 1</a></li>
+    <li><a href="YOUR_AFFILIATE_LINK" target="_blank" class="affiliate-btn">Tool 2</a></li>
+    <li><a href="YOUR_AFFILIATE_LINK" target="_blank" class="affiliate-btn">Tool 3</a></li>
+  </ul>
+</section>
 
-    // Dark mode toggle
-    function toggleTheme() {
-      document.body.classList.toggle("dark");
-    }
+<section id="contact">
+  <h2>Contact Me</h2>
+  <p>Email: <a href="mailto:valtelunz@gmail.com">valtelunz@gmail.com</a></p>
+  <p>Reach out for collaborations, freelance projects, or inquiries.</p>
+</section>
 
-    // Typing animation
-    const typedTextSpan = document.querySelector(".typed-text");
-    const cursorSpan = document.querySelector(".cursor");
-    const textArray = ["a Web Developer", "a Designer", "a Creator", "Lun Valte"];
-    const typingDelay = 100, erasingDelay = 50, newTextDelay = 1500;
-    let textArrayIndex = 0, charIndex = 0;
+<footer>
+  <p>&copy; 2025 Lun Valte. All Rights Reserved.</p>
+</footer>
 
-    function type() {
-      if (charIndex < textArray[textArrayIndex].length) {
-        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(type, typingDelay);
-      } else setTimeout(erase, newTextDelay);
-    }
-
-    function erase() {
-      if (charIndex > 0) {
-        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
-        charIndex--;
-        setTimeout(erase, erasingDelay);
-      } else {
-        textArrayIndex = (textArrayIndex+1) % textArray.length;
-        setTimeout(type, typingDelay + 500);
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-      if(textArray.length) setTimeout(type, newTextDelay + 250);
-    });
-
-    // Smooth scrolling
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', function(e){
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    // Scroll animation for cards
-    const cards = document.querySelectorAll('.card');
-    function showCardsOnScroll() {
-      const triggerBottom = window.innerHeight * 0.85;
-      cards.forEach((card, index) => {
-        const cardTop = card.getBoundingClientRect().top;
-        if(cardTop < triggerBottom){
-          setTimeout(() => { card.classList.add('show'); }, index*150);
-        } else {
-          card.classList.remove('show');
-        }
-      });
-    }
-    window.addEventListener('scroll', showCardsOnScroll);
-    showCardsOnScroll();
-  </script>
 </body>
 </html>

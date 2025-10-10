@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ginlun Valte - Designer & Creator</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="YOUR_FAVICON_URL" type="image/png">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WQ0FGCVYX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1WQ0FGCVYX');
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Roboto', sans-serif; margin:0; padding:0; background:#f5f7fa; color:#333; }
+  header { background:#1e293b; color:#fff; padding:20px 0; text-align:center; }
+  header h1 { margin:0; font-size:2.5em; }
+  header nav { display:flex; justify-content:center; flex-wrap:wrap; margin-top:10px; }
+  nav a { color:#fff; margin:5px 15px; text-decoration:none; font-weight:500; }
+  nav a:hover { text-decoration:underline; }
+  section { max-width:1000px; margin:40px auto; padding:30px; background:#fff; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); opacity:0; transform: translateY(20px); transition: all 0.8s ease; }
+  section.visible { opacity:1; transform: translateY(0); }
+  h2 { color:#1e293b; margin-bottom:20px; }
+  p, li { line-height:1.7; }
+  .affiliate-btn, .banner-btn { display:inline-block; padding:12px 25px; margin:10px 0; border-radius:8px; text-decoration:none; font-weight:600; opacity:0; transform: translateY(20px); transition: all 0.6s ease; }
+  .affiliate-btn { background:#0073e6; color:#fff; }
+  .banner-btn { background:#ff6f61; color:#fff; font-weight:700; }
+  .affiliate-btn.visible, .banner-btn.visible { opacity:1; transform: translateY(0); }
+  .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:20px; }
+  .card { background:#f0f4f8; padding:20px; border-radius:10px; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.1); opacity:0; transform: translateY(20px); transition: all 0.6s ease; }
+  .card.visible { opacity:1; transform: translateY(0); }
+  .card img { max-width:100%; border-radius:8px; margin-bottom:15px; }
+  .banner-section { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin-bottom:40px; }
+  footer { text-align:center; padding:20px; background:#1e293b; color:#fff; margin-top:40px; }
+  .animated-text { font-weight: bold; color: #ff6f61; border-right: 3px solid #ff6f61; white-space: nowrap; overflow: hidden; display: inline-block; }
+  @keyframes blink { 50% { border-color: transparent; } }
+  .animated-text.blink { animation: blink 0.7s step-end infinite; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Ginlun Valte</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#top-products">Top Products</a>
+    <a href="#tutorials">Tutorials</a>
+    <a href="#resources">Resources</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="home" class="visible" style="text-align:center;">
+  <!-- Replace YOUR_PHOTO_URL with your actual photo -->
+  <img src="YOUR_PHOTO_URL" alt="Ginlun Valte" style="width:150px; border-radius:50%; margin-bottom:15px;">
+  <h2>Welcome to My Corner of the Internet</h2>
+  <p>Hello! I’m Lun Valte. This is my corner of the internet — a place to share my projects, passions, and creative work. 
+    <span class="animated-text"></span>. Thanks for stopping by!</p>
+</section>
+
+<!-- Banner Section -->
+<section class="banner-section">
+  <a href="https://www.amazon.in/dp/B09XXXXXXX?tag=lunvalte20-21" target="_blank" rel="noopener noreferrer" class="banner-btn">Amazon: Web Dev Course</a>
+  <a href="https://www.flipkart.com/product/p/itmXXXXXXXX?affid=YOURFLIPKARTID" target="_blank" rel="noopener noreferrer" class="banner-btn">Flipkart: Productivity App</a>
+  <a href="https://www.cj.com/track?cjid=7754915&linkid=12345" target="_blank" rel="noopener noreferrer" class="banner-btn">CJ: Design Tool</a>
+  <a href="https://YOURCLICKBANKID.vendorname.hop.clickbank.net" target="_blank" rel="noopener noreferrer" class="banner-btn">ClickBank: Exclusive Tool</a>
+</section>
+
+<section id="top-products">
+  <h2>Top Products & Apps</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1581091215369-9a08e998de7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=250" alt="Amazon Web Dev Course">
+      <h3>Amazon: Learn Web Development</h3>
+      <p>Step-by-step course for beginners to build real projects.</p>
+      <a href="https://www.amazon.in/dp/B09XXXXXXX?tag=lunvalte20-21" target="_blank" rel="noopener noreferrer" class="affiliate-btn">Enroll Now</a>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1581276879432-15f3e1ef7f4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=250" alt="Flipkart Productivity App">
+      <h3>Flipkart: Productivity App</h3>
+      <p>Organize tasks, increase focus, and boost productivity.</p>
+      <a href="https://www.flipkart.com/product/p/itmXXXXXXXX?affid=YOURFLIPKARTID" target="_blank" rel="noopener noreferrer" class="affiliate-btn">Download</a>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1581091012184-1f087798b7e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=250" alt="CJ Design Tool">
+      <h3>CJ: Design Tool for Creatives</h3>
+      <p>Create professional designs easily with this powerful tool.</p>
+      <a href="https://www.cj.com/track?cjid=7754915&linkid=12345" target="_blank" rel="noopener noreferrer" class="affiliate-btn">Try it Now</a>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1581091012184-1f087798b7e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=250" alt="ClickBank Tool">
+      <h3>ClickBank: Exclusive Tool Offer</h3>
+      <p>Special offer via ClickBank.</p>
+      <a href="https://YOURCLICKBANKID.vendorname.hop.clickbank.net" target="_blank" rel="noopener noreferrer" class="affiliate-btn">Get It Now</a>
+    </div>
+  </div>
+</section>
+
+<section id="tutorials">
+  <h2>Tutorials & Guides</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=250" alt="HTML & CSS Basics">
+      <h3>HTML & CSS Basics</h3>
+      <p>Learn the foundation of web development step by step.</p>
+      <a href="https://www.amazon.in/dp/B09XXXXXXX?tag=lunvalte20-21" target="_blank" rel="noopener noreferrer" class="affiliate-btn">Learn More</a>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=250" alt="JavaScript Essentials">
+      <h3>JavaScript Essentials</h3>
+      <p>Interactive tutorials to master JavaScript fundamentals.</p>
+      <a href="https://www.cj.com/track?cjid=7754915&linkid=12345" target="_blank" rel="noopener noreferrer" class="affiliate-btn">Start Learning</a>
+    </div>
+  </div>
+</section>
+
+<section id="resources">
+  <h2>Recommended Tools & Resources</h2>
+  <ul>
+    <li><a href="https://www.amazon.in/dp/B09XXXXXXX?tag=lunvalte20-21" target="_blank" rel="noopener noreferrer" class="affiliate-btn">Amazon Tool</a></li>
+    <li><a href="https://www.flipkart.com/product/p/itmXXXXXXXX?affid=YOURFLIPKARTID" target="_blank" rel="noopener noreferrer" class="affiliate-btn">Flipkart Tool</a></li>
+    <li><a href="https://www.cj.com/track?cjid=7754915&linkid=12345" target="_blank" rel="noopener noreferrer" class="affiliate-btn">CJ Tool</a></li>
+    <li><a href="https://YOURCLICKBANKID.vendorname.hop.clickbank.net" target="_blank" rel="noopener noreferrer" class="affiliate-btn">ClickBank Tool</a></li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <p>Email: <a href="mailto:valtelunz@gmail.com">valtelunz@gmail.com</a></p>
+  <p>Reach out for collaborations, freelance projects, or inquiries.</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Ginlun Valte. All Rights Reserved.</p>
+</footer>
+
+<script>
+  const phrases = ["I am a designer", "I am a web developer", "I am a creator"];
+  let i = 0, current = '', isDeleting = false;
+  const target = document.querySelector('.animated-text');
+  const speed = 150;
+
+  function type() {
+    if(i >= phrases.length) i = 0;
+    const fullPhrase = phrases[i];
+    if(isDeleting) current = fullPhrase.substring(0, current.length - 1);
+    else current = fullPhrase.substring(0, current.length + 1);
+    target.textContent = current;
+    target.classList.add('blink');
+    if(!isDeleting && current === fullPhrase) {
+      setTimeout(() => { isDeleting = true; type(); }, 1000);
+      return;
+    } else if(isDeleting && current === '') {
+      isDeleting = false;
+      i++;
+    }
+    setTimeout(type, isDeleting ? speed/2 : speed);
+  }
+  type();
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('section, .card, .banner-btn, .affiliate-btn').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.affiliate-btn, .banner-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const label = button.textContent.trim();
+      const link = button.href;
+      gtag('event', 'Affiliate_Click', {
+        'event_category': 'Engagement',
+        'event_label': label,
+        'value': link
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

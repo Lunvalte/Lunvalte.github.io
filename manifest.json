@@ -1,11 +1,14 @@
 {
-  "background_color": "#ffffff",
-  "dir": "ltr",
+  "name": "EimiShoppingHub",
+  "short_name": "EimiShop",
+  "description": "EimiShoppingHub is a web app for browsing and downloading shopping products.",
+  "start_url": "/eimishoppinghub.html",
   "display": "standalone",
-  "name": "lunvalte.github",
-  "orientation": "any",
-  "scope": "/",
-  "short_name": "lunvalte.github",
-  "start_url": "/",
-  "theme_color": "#ffffff"
+  "background_color": "#ffffff",
+  "theme_color": "#ff5c5c",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
 }
+

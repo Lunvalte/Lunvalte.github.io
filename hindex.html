@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EimiShoppingHub</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/icons/icon-192.png">
+  <style>
+    body { font-family: Arial, sans-serif; background: #f5f5f5; text-align: center; padding: 50px; }
+    .container { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 400px; margin: auto; }
+    h1 { color: #333; }
+    p { color: #555; margin-bottom: 30px; }
+    .btn { display: inline-block; padding: 15px 25px; font-size: 16px; color: #fff; background: #ff5c5c; border: none; border-radius: 8px; cursor: pointer; text-decoration: none; transition: background 0.3s; }
+    .btn:hover { background: #ff3b3b; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to EimiShoppingHub</h1>
+    <p>Get the app and stay updated with the latest deals!</p>
+    <a class="btn" href="EimiShoppingHub.apk" download>Download APK</a>
+    <p style="margin-top:20px;">Enable notifications for latest alerts:</p>
+    <button class="btn" id="notifyBtn">Enable Notifications</button>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging.js"></script>
+
+  <script>
+    // Firebase Initialization
+    firebase.initializeApp({
+      apiKey: "AIzaSyD_EimiShoppingHubDemoKey123456",
+      authDomain: "eimishoppinghub-demo.firebaseapp.com",
+      projectId: "eimishoppinghub-demo",
+      storageBucket: "eimishoppinghub-demo.appspot.com",
+      messagingSenderId: "123456789012",
+      appId: "1:123456789012:web:eimishoppinghub12345"
+    });
+
+    const messaging = firebase.messaging();
+
+    async function requestNotificationPermission() {
+      const permission = await Notification.requestPermission();
+      if (permission === 'granted') getFcmToken();
+      else alert('Notifications disabled');
+    }
+
+    async function getFcmToken() {
+      const token = await messaging.getToken({
+        vapidKey: 'BOqiYQRw_E9J3atWchlq55wv7E3uTCT2VrQBPgvcGuM5hEZgQeCzmOhU1kOfTmvo6aAMgfW55kBXCkTzxGsd4E'
+      });
+      console.log('FCM Token:', token);
+      alert('Notifications enabled!');
+      // Send token to your server to send notifications
+    }
+
+    messaging.onMessage((payload) => {
+      alert(payload.notification?.title + ': ' + payload.notification?.body);
+    });
+
+    document.getElementById('notifyBtn').addEventListener('click', requestNotificationPermission);
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(() => console.log('Service Worker registered'))
+        .catch(err => console.error('Service Worker registration failed:', err));
+    }
+  </script>
+</body>
+</html>

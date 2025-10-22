@@ -1,7 +1,8 @@
 {
   "name": "EimiShoppingHub",
   "short_name": "EimiShop",
-  "start_url": "/",
+  "description": "EimiShoppingHub is a web app for browsing and downloading shopping products.",
+  "start_url": "/eimishoppinghub.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ff5c5c",
